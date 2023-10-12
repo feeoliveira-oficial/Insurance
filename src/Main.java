@@ -8,7 +8,8 @@ public class Main {
     {
         InsuranceManager manager = new InsuranceManager();
         Scanner scanner = new Scanner(System.in);
-        while (true){
+        while (true)
+        {
             System.out.println("1 Receive new application");
             System.out.println("2. View current insurance agreements");
             System.out.println("3. View financial breakdown");
