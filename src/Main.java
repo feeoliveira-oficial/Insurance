@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 
@@ -10,12 +8,18 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         while (true)
         {
-            System.out.println("1 Receive new application");
-            System.out.println("2. View current insurance agreements");
-            System.out.println("3. View financial breakdown");
-            System.out.println("4. Break insurance agreement");
-            System.out.println("5. Move time forward");
-            System.out.println("0. Exit");
+            String pattern = "| %-37s |%n";
+            System.out.println("+---------------------------------------+");
+            System.out.println("|            MAIN MENU                  |");
+            System.out.println("+---------------------------------------+");
+            System.out.format(pattern,"1. Receive new application");
+            System.out.format(pattern,"2. View current insurance agreements");
+            System.out.format(pattern,"3. View financial breakdown");
+            System.out.format(pattern,"4. Break insurance agreement");
+            System.out.format(pattern,"5. Move time forward");
+            System.out.format(pattern,"0. Exit");
+            System.out.println("+---------------------------------------+");
+            System.out.print("Please enter your choice: ");
             int choice = scanner.nextInt();
 
             switch (choice){

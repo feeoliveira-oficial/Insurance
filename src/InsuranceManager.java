@@ -13,20 +13,32 @@ public class InsuranceManager
 
     public void receiveApplications()
     {
+        System.out.println("+----------------------------------------------------------------------------+");
+        System.out.println("|                        AVAILABLE APPLICATIONS                              |");
+        System.out.println("+---+---------------+------------------+------------+------------------------+");
+        System.out.println("|ID |  Client Name  |    Yearly Fee    |    Risk    |    Insurance Amount    |");
+        System.out.println("+---+---------------+------------------+------------+------------------------+");
         for (int i = 0; i < 6; i++)
         {
             String clientName = "Client" + (i + 1);
             applications[i] = new Insurance(clientName);
-            System.out.println((i + 1) + ". " + applications[i]);
+            System.out.println(("| " + (i + 1) +" ") + applications[i]);
         }
+        System.out.println("+---+---------------+------------------+------------+------------------------+");
     }
     public void viewAgreements()
     {
+        System.out.println("+------------------------------------------------------------------------+");
+        System.out.println("|                        CURRENT CONTRACTS                               |");
+        System.out.println("+---------------+------------------+------------+------------------------+");
+        System.out.println("|  Client Name  |    Yearly Fee    |    Risk    |    Insurance Amount    |");
+        System.out.println("+---------------+------------------+------------+------------------------+");
         // Display all current agreements
         for (Insurance insurance : insurances)
         {
             System.out.println(insurance);
         }
+        System.out.println("+---------------+------------------+------------+------------------------+");
     }
     public void acceptApplication(int index)
     {
@@ -34,7 +46,12 @@ public class InsuranceManager
         {
             Insurance selected = applications[index - 1];
             insurances.add(selected);
-            System.out.println("Application accepted for: " + selected);
+            System.out.println("Application accepted for: ");
+            System.out.println("+---------------+------------------+------------+------------------------+");
+            System.out.println("|  Client Name  |    Yearly Fee    |    Risk    |    Insurance Amount    |");
+            System.out.println("+---------------+------------------+------------+------------------------+");
+            System.out.println(selected);
+            System.out.println("+---------------+------------------+------------+------------------------+");
         }
         else
         {
@@ -61,7 +78,12 @@ public class InsuranceManager
             double penalty = removed.getYearlyFee() * 10; // costs 10x the annual tax to break an agreement
             totalMoney -= penalty;
             totalCancelledContractsPayments += penalty;
-            System.out.println("Broke agreement with: " + removed);
+            System.out.println("Broke agreement with: " );
+            System.out.println("+---------------+------------------+------------+------------------------+");
+            System.out.println("|  Client Name  |    Yearly Fee    |    Risk    |    Insurance Amount    |");
+            System.out.println("+---------------+------------------+------------+------------------------+");
+            System.out.println(removed);
+            System.out.println("+---------------+------------------+------------+------------------------+");
         } else {
             System.out.println("Invalid choice.");
         }
@@ -81,7 +103,7 @@ public class InsuranceManager
                 totalClaimsPaid += insurance.getInsuranceAmount();
             }
         }
-        System.out.println("Money Earned: " + moneyEarned);
-        System.out.println("Claims Paid: " + claimsPaid);
+        System.out.format("Money Earned: $ %.2f %n", moneyEarned);
+        System.out.format("Claims Paid: $ %.2f %n", claimsPaid);
     }
 }

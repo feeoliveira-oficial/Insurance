@@ -24,8 +24,16 @@ public class Insurance
     @Override
     public String toString()
     {
-        return "Client Name: " + clientName + ", Yearly Fee: " + yearlyFee +
-                ", Risk: " + risk + ", Insurance Amount: " + insuranceAmount;
+
+        var pattern = "| %-13s | $ %14.2f | %-9.2f%% | $ %20.2f |";
+        return String.format(pattern,
+                clientName,
+                yearlyFee,
+                risk,
+                insuranceAmount
+        );
+//        return "Client Name: " + clientName + ", Yearly Fee: " + String.format("$ %.2f", yearlyFee) +
+//                ", Risk: " + String.format(" %.2f%%",risk) + ", Insurance Amount: " + String.format("$ %.2f",insuranceAmount);
     }
     public double getYearlyFee()
     {
